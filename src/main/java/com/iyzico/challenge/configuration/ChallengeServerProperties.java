@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ServerProperties {
+public class ChallengeServerProperties {
 
 	@Value("${iyzico-challenge.security.enabled:false}")
 	private boolean securityEnabled;

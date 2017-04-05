@@ -3,9 +3,12 @@ package com.iyzico.challenge.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TicketPrice {
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+public class TicketPrice {
+	@JsonFormat(pattern = "dd.MM.yyyy")
 	Date startDate;
+	@JsonFormat(pattern = "dd.MM.yyyy")
 	Date endDate;
 	String ticketType;
 	BigDecimal ticketPrice;

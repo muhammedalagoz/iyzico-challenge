@@ -7,22 +7,21 @@
 		<Console name="Console-Appender" target="SYSTEM_OUT">
 			<PatternLayout>
 				<pattern>
-					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+					[%-5level] %d{ISO8601} [%t] %c{1} - %msg%n
 				</pattern>
-				>
 			</PatternLayout>
 		</Console>
 		<File name="App-File-Appender" fileName="${log-path}/app_log.log">
 			<PatternLayout>
 				<pattern>
-					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+					[%-5level] %d{ISO8601} [%t] %c{1} - %msg%n
 				</pattern>
 			</PatternLayout>
 		</File>
 		<File name="SpringBoot-File-Appender" fileName="${log-path}/springboot_log.log">
 			<PatternLayout>
 				<pattern>
-					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+					[%-5level] %d{ISO8601} [%t] %c{1} - %msg%n
 				</pattern>
 			</PatternLayout>
 		</File>

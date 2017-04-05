@@ -8,7 +8,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -19,8 +20,8 @@ import com.iyzico.challenge.bean.TicketPrice;
 public class PriceUtils {
 
 	private final String PRICE_DEFINITIONS_PREFIX = "iyzico-challenge.ticket.price";
-	private Logger logger = Logger.getLogger(PriceUtils.class);
-	private SimpleDateFormat priceFormatter = new SimpleDateFormat("dd-mm-yyyy");
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private SimpleDateFormat priceFormatter = new SimpleDateFormat("dd-MM-yyyy");
 
 	@Autowired
 	Environment env;
@@ -31,7 +32,7 @@ public class PriceUtils {
 	private void readTicketPrices() {
 		try {
 			int priceDefinitionsCount = env.getProperty("iyzico-challenge.ticket.price.count", Integer.class);
-
+			logger.info("Total ticket price definitions count is : " + priceDefinitionsCount);
 			if (priceDefinitionsCount > 0) {
 				// read price definitions
 
@@ -49,11 +50,15 @@ public class PriceUtils {
 				}
 
 				ticketPrices.stream().forEach(p -> {
-					logger.info(p);
+					logger.info(p.toString());
 				});
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
+	}
+
+	public List<TicketPrice> getTicketPrices() {
+		return ticketPrices;
 	}
 }

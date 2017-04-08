@@ -1,0 +1,10 @@
+language: java
+script: mvn clean verify
+
+branches:
+  only:
+  - master
+
+notifications:
+  email:
+  - alican.akkus94@gmail.com

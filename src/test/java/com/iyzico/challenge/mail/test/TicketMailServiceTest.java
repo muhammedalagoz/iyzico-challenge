@@ -2,6 +2,9 @@ package com.iyzico.challenge.mail.test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 
@@ -43,6 +46,9 @@ public class TicketMailServiceTest {
 
 		Ticket ticket = new Ticket();
 		ticket.setEmail("alican.akkus94@gmail.com");
+		ticket.setTotalPrice(BigDecimal.valueOf(750));
+		ticket.setTicketDate(new Date());
+
 		ticketMailService.prepareAndSend(ticket);
 
 		Message[] messages = testSmtp.getReceivedMessages();

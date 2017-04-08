@@ -1,5 +1,11 @@
 language: java
-script: mvn clean install
+
+jdk:
+  - oraclejdk8
+  
+cache:
+    directories:
+    - $HOME/.m2  
 
 branches:
   only:
@@ -8,3 +14,5 @@ branches:
 notifications:
   email:
   - alican.akkus94@gmail.com
+
+script: mvn clean install

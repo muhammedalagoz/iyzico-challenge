@@ -1,69 +1,5 @@
-@font-face {
-	font-family: 'museo_sans700';
-	src: url('../fonts/museosans-700-webfont.eot');
-	src: url('../fonts/museosans-700-webfont.eot?#iefix')
-		format('embedded-opentype'),
-		url('../fonts/museosans-700-webfont.woff2') format('woff2'),
-		url('../fonts/museosans-700-webfont.woff') format('woff'),
-		url('../fonts/museosans-700-webfont.ttf') format('truetype'),
-		url('../fonts/museosans-700-webfont.svg#museo_sans700') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'OpenSansRegular';
-	src: url('../fonts/OpenSans-Regular-webfont.eot');
-	src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix')
-		format('embedded-opentype'),
-		url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
-		url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
-		url('../fonts/OpenSans-Regular-webfont.svg#OpenSansRegular')
-		format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'OpenSansSemibold';
-	src: url('../fonts/OpenSans-Semibold-webfont.eot');
-	src: url('../fonts/OpenSans-Semibold-webfont.eot?#iefix')
-		format('embedded-opentype'),
-		url('../fonts/OpenSans-Semibold-webfont.woff') format('woff'),
-		url('../fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
-		url('../fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold')
-		format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'OpenSansBold';
-	src: url('../fonts/OpenSans-Bold-webfont.eot');
-	src: url('../fonts/OpenSans-Bold-webfont.eot?#iefix')
-		format('embedded-opentype'),
-		url('../fonts/OpenSans-Bold-webfont.woff') format('woff'),
-		url('../fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
-		url('../fonts/OpenSans-Bold-webfont.svg#OpenSansBold') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 .bold {
 	font-family: 'OpenSansBold';
-}
-
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-}
-
-.clearfix {
-	display: inline-block;
 }
 
 * html .clearfix {
@@ -76,7 +12,6 @@
 
 html,body {
 	height: 100%;
-	background: url(../images/pattern.jpg);
 }
 
 .page-wrap {
@@ -102,188 +37,6 @@ html,body {
 	color: #8b8b8b;
 }
 
-.navbar-inverse {
-	background: #fff;
-	border-radius: 0;
-	border: 0;
-	height: 90px;
-	min-height: auto;
-	box-shadow: 0px 2px 5px 0px rgba(167, 167, 167, 0.75);
-	-webkit-box-shadow: 0px 2px 5px 0px rgba(167, 167, 167, 0.75);
-	-moz-box-shadow: 0px 2px 5px 0px rgba(167, 167, 167, 0.75);
-}
-
-.navbar-brand {
-	height: auto;
-	display: block;
-}
-
-.brand-name {
-	font-size: 18px;
-	color: #555;
-	font-family: 'museo_sans700';
-	margin: 35px 0 0 0;
-}
-
-.login-status-content {
-	font-family: 'OpenSansRegular';
-	color: #7b7b7b;
-	margin: 17px 0 0 0;
-	padding: 4px;
-	font-size: 12px;
-	background: #f9f9f9;
-	border: 4px solid rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-}
-
-.login-status-content .welcome {
-	font-size: 14px;
-	color: #555;
-}
-
-.login-status-content .logout-link {
-	background: url(../images/logout-arrow.png) no-repeat right center;
-	padding: 0 20px 0 0;
-	color: #555;
-	font-family: 'museo_sans700';
-}
-
-.login-form {
-	border: 12px solid rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-	background-color: rgb(255, 255, 255);
-	margin: 50px auto;
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding;
-	background-clip: padding-box;
-}
-
-.login-form .form-header {
-	border-bottom: 1px solid #e2e2e2;
-	padding: 10px;
-}
-
-.login-form .form-signin-heading {
-	font-size: 18px;
-	color: #555;
-	font-family: 'museo_sans700';
-	margin: 0;
-	line-height: 28px;
-}
-
-.login-form h3 {
-	font-size: 13px;
-	color: #949494;
-	margin: 0;
-	font-family: 'museo_sans700';
-}
-
-.jumbotron {
-	margin: 20px;
-	padding: 40px 40px 30px 40px;
-}
-
-.bottom-description {
-	background: #f0f0f0;
-	color: #8b8b8b;
-	padding: 5px;
-	font-family: 'OpenSansRegular';
-	font-size: 12px;
-}
-
-.form-horizontal .control-label {
-	font-family: 'museo_sans700';
-	color: #555;
-}
-
-.jumbotron .form-control {
-	border-style: solid;
-	height: 38px;
-	background-color: rgb(255, 255, 255);
-	border-radius: 0;
-	-webkit-border-top-right-radius: 4px;
-	-webkit-border-bottom-right-radius: 4px;
-	-moz-border-radius-topright: 4px;
-	-moz-border-radius-bottomright: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-.jumbotron .form-control:focus {
-	box-shadow: none;
-}
-
-.form-control-container {
-	border: 5px solid #e0e0e0;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	padding: 0 0 0 15px;
-}
-
-.form-control-container .col {
-	background: #ececec;
-	text-align: center;
-	display: block;
-	color: #7c7c7c;
-	padding: 8px;
-	width: 35px;
-	height: 38px;
-	border: 1px solid #c3c3c3;
-	border-right: 0;
-	-webkit-border-top-left-radius: 4px;
-	-webkit-border-bottom-left-radius: 4px;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-
-.form-control-container .input {
-	padding: 0;
-	width: 82%;
-}
-
-.form-horizontal.login .control-label {
-	padding-top: 12px;
-}
-
-.form-horizontal.login .form-group,.table .form-group {
-	border: 0;
-}
-
-.tab-form .form-group {
-	padding-bottom: 15px;
-}
-
-.form-horizontal.tab-form {
-	margin: 15px;
-}
-
-.form-horizontal.tab-form .control-label {
-	text-align: left;
-}
-
-.btn.login {
-	border: 0;
-	border-radius: 5px;
-	background: #2FA780;
-	font-size: 16px;
-	font-family: 'museo_sans700';
-	letter-spacing: 1px;
-	min-width: 100px;
-	color: #fff;
-	padding: 10px 15px 9px 15px;
-}
-
-.btn.login:focus {
-	background: #289773;
-	outline: 0;
-	margin: 5px 0 5px 0;
-}
-
 .alert {
 	padding: 10px;
 	margin: 20px;
@@ -291,277 +44,39 @@ html,body {
 	font-size: 12px;
 }
 
-.nav-tabs.application-tab {
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(209, 209, 209);
-	background-image: -moz-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-	background-image: -webkit-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-	background-image: -ms-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-	margin: 20px 0 0 0;
-}
-
-.nav-tabs.application-tab li a {
-	font-family: 'OpenSansSemiBold';
-	border-radius: 0;
-	border: 0;
-	border-right: 1px solid #d1d1d1;
-	margin: 0;
-	opacity: 0.7;
-	color: #555;
-	background: url(../images/tab-icons.png) no-repeat;
-	padding-left: 40px;
-}
-
-.nav-tabs.application-tab li.active a {
-	border-top: 0;
-	border-left: 0;
-	color: #555;
-	opacity: 1;
-}
-
-.nav-tabs.application-tab li.active a:first-child {
-	-webkit-border-top-left-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	border-top-left-radius: 5px;
-}
-
-.nav-tabs.application-tab>li.active>a,.nav-tabs.application-tab>li.active>a:hover,.nav-tabs.application-tab>li.active>a:focus
-	{
-	border-bottom: 0;
-	background-color: #fff;
-}
-
-.nav-tabs.application-tab li.status a {
-	background-position: 14px 11px;
-}
-
-.nav-tabs.application-tab li.search a {
-	background-position: 15px -29px;
-}
-
-.nav-tabs.application-tab li.report a {
-	background-position: 15px -69px;
-}
-
-.tab-content.application {
-	background: #fff;
-	padding: 20px;
-	margin-bottom: 40px;
-	border: 1px solid #d1d1d1;
-	border-top: 0;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-.page-header {
-	color: #ad2118;
-	font-family: 'OpenSansBold';
-	font-size: 16px;
-	padding: 0 0 0 18px;
-	position: relative;
-	margin: 0;
-	line-height: 32px;
-	border-color: #ddd;
-}
-
-.page-header:before {
-	content: '';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 2px;
-	top: 11px;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-left: 7px solid #ad2118;
-}
-
-.table-responsive {
-	margin: 15px 0 15px 0;
-	color: #555;
-}
-
-.table thead {
-	font-size: 12px;
-	font-family: 'OpenSansBold';
-	background-image: -moz-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-	background-image: -webkit-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-	background-image: -ms-linear-gradient(90deg, rgb(223, 223, 223) 0%,
-		rgb(248, 248, 248) 50%, rgb(255, 255, 255) 100%);
-}
-
-.table-striped>tbody>tr:nth-of-type(odd) {
-	background-color: #fff;
-}
-
-.table-striped>tbody>tr:nth-of-type(even) {
-	background-color: #f9f9f9;
-}
-
-.table>thead>tr>th {
-	vertical-align: middle;
-	line-height: 17px;
-	padding: 5px;
-	color: #555;
-}
-
-.table>tbody>tr>th,.table>tbody>tr>td {
-	font-size: 12px;
-	font-family: 'OpenSansRegular';
-	line-height: 21px;
-	padding: 5px;
-	color: #555;
-}
-
-.status-icon {
-	border-radius: 50%;
-	display: block;
-	height: 17px;
-	width: 17px;
-	margin-top: 2px;
-	-webkit-box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.50);
-	-moz-box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.50);
-	box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.50);
-}
-
-.status-icon-text {
-	margin-left: 5px;
-	font-size: 12px;
-	font-family: 'OpenSansRegular';
-}
-
-.table-property-list label {
-	display: inline-block;
-	font-family: 'OpenSansBold';
-}
-
-.btn-default {
-	color: #fff;
-	font-family: 'OpenSansSemiBold';
-	background: #617C8E;
-	border: 0;
-	-webkit-box-shadow: 0 2px 0 #455263;
-	-moz-box-shadow: 0 2px 0 #455263;
-	box-shadow: 0 2px 0 #455263;
-}
-
-.btn-default:hover,.btn-default:active,.btn-default:focus {
-	color: #fff;
-	border: 0;
-	background: #4F6472;
-}
-
-.btn-default.pause,.btn-default.play {
-	border-radius: 100%;
-	width: 24px;
-	height: 24px;
-	padding: 0 0 2px 1px;
-	text-align: center;
-	box-shadow: none;
-}
-
-.btn-default.pause span,.btn-default.play span {
-	font-size: 14px;
-	text-shadow: 0 1px 1px #000;
-}
-
-.total-row {
-	border-top: 1px solid #d1d1d1;
-}
-
-.form-group {
-	border-bottom: 1px solid #ddd;
-}
-
-.form-horizontal.tab-form .btn-default {
-	min-width: 90px;
-}
-
-.form-horizontal.tab-form .btn-default.log-btn {
-	font-size: 18px;
-	min-width: 40px;
-	padding: 4px;
-	margin-right: 5px;
-}
-
 .resize-text,.resize-text a {
 	font-size: 18px;
 	color: #818181;
 }
 
-div {
-    display: block;
-}
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
 
-@media ( max-width : 540px) {
-	.jumbotron {
-		padding: 0 20px 5px 20px;
-	}
-	.login-form {
-		margin: 5px auto 25px auto;
-	}
-	.form-control-container .input {
-		width: 75%;
-	}
-	.log-viewer-wrapper .header h5 {
-		font-size: 13px;
-	}
-	.log-viewer-wrapper .header .checkbox {
-		font-size: 12px;
-	}
-}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {}
 
-@media ( max-width :767px) {
-	.navbar-brand,.navbar-brand>img,.brand-name,.nav-tabs.application-tab li
-		{
-		margin: auto;
-		float: none;
-	}
-	.brand-name {
-		width: 100%;
-		text-align: center;
-		font-size: 14px;
-		margin-bottom: 10px;
-	}
-	.login-form .form-signin-heading {
-		font-size: 14px;
-	}
-	.login-status-content {
-		margin: auto auto 10px auto;
-	}
-	.nav-tabs.application-tab li a,.nav-tabs.application-tab li.active a,.nav-tabs.application-tab li.active a:hover
-		{
-		border-right: 0;
-		border-bottom: 1px solid #d1d1d1;
-	}
-	.site-footer {
-		height: auto;
-		font-size: 10px;
-		text-align: center;
-	}
-	.form-control {
-		margin-bottom: 10px;
-	}
-}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {}
 
-@media ( max-width : 1200px) {
-	.navbar-inverse {
-		height: auto;
-	}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {}
+
+.asteriskField{color: red;}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 50%;
+      margin: auto;
+  }
+.carousel{
+    background: #2f4357;
+    margin-top: 20px;
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.bs-example{
+	margin: 20px;
 }

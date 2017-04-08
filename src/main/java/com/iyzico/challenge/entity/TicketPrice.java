@@ -1,11 +1,21 @@
-package com.iyzico.challenge.bean;
+package com.iyzico.challenge.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Entity
 public class TicketPrice {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
 	@JsonFormat(pattern = "dd.MM.yyyy")
 	Date startDate;
 	@JsonFormat(pattern = "dd.MM.yyyy")
@@ -13,8 +23,13 @@ public class TicketPrice {
 	String ticketType;
 	BigDecimal ticketPrice;
 
-	public TicketPrice(Date startDate, Date endDate, String ticketType, BigDecimal ticketPrice) {
+	public TicketPrice() {
 		super();
+	}
+
+	public TicketPrice(Long id, Date startDate, Date endDate, String ticketType, BigDecimal ticketPrice) {
+		super();
+		this.id = id;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.ticketType = ticketType;
@@ -55,7 +70,8 @@ public class TicketPrice {
 
 	@Override
 	public String toString() {
-		return "TicketPrice [startDate=" + startDate + ", endDate=" + endDate + ", ticketType=" + ticketType + ", ticketPrice=" + ticketPrice + "]";
+		return "TicketPrice [ id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", ticketType=" + ticketType + ", ticketPrice=" + ticketPrice
+				+ "]";
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.iyzico.challenge.bean;
+package com.iyzico.challenge.model;
 
 import java.util.Arrays;
 

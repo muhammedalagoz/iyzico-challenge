@@ -14,6 +14,7 @@ const iyzicoApp = new Vue({
         	 message : '',
         	 ticket : {
         		 nameOnTheCard : '',
+        		 email : '',
         		 selectedTicketType : '',
         		 isValidDiscountCode : false,
         		 discountCodeMessage: '',

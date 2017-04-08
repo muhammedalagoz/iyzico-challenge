@@ -11,4 +11,6 @@ import com.iyzico.challenge.entity.TicketDiscount;
 
 public interface TicketDiscountService {
 	List<TicketDiscount> findAll();
+
+	TicketDiscount findByDiscountCode(String code);
 }

@@ -24,4 +24,9 @@ public class TicketDiscountServiceImpl implements TicketDiscountService {
 		return ticketDiscountRepository.findAll();
 	}
 
+	@Override
+	public TicketDiscount findByDiscountCode(String code) {
+		return ticketDiscountRepository.findByDiscountCode(code);
+	}
+
 }

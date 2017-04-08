@@ -10,6 +10,8 @@ public class Application {
 
 	@Value("${iyzico.application.name}")
 	private String applicationName;
+	@Value("${iyzico.application.description}")
+	private String applicationDescription;
 	@Value("${iyzico.application.version}")
 	private String applicationVersion;
 	@Value("${iyzico.application.createdBy}")
@@ -49,10 +51,18 @@ public class Application {
 		this.reviewers = reviewers;
 	}
 
+	public String getApplicationDescription() {
+		return applicationDescription;
+	}
+
+	public void setApplicationDescription(String applicationDescription) {
+		this.applicationDescription = applicationDescription;
+	}
+
 	@Override
 	public String toString() {
-		return "Application [applicationName=" + applicationName + ", applicationVersion=" + applicationVersion + ", createdBy=" + createdBy + ", reviewers="
-				+ Arrays.toString(reviewers) + "]";
+		return "Application [applicationName=" + applicationName + ", applicationDescription=" + applicationDescription + ", applicationVersion="
+				+ applicationVersion + ", createdBy=" + createdBy + ", reviewers=" + Arrays.toString(reviewers) + "]";
 	}
 
 }

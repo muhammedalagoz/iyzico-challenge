@@ -28,6 +28,7 @@ public class Ticket implements Serializable {
 	private Long id;
 	@NotEmpty
 	private String nameOnTheCard;
+	private String email;
 	@Transient
 	private boolean isValidDiscountCode;
 	@Column(name = "ticketPrice")
@@ -60,6 +61,14 @@ public class Ticket implements Serializable {
 
 	public void setNameOnTheCard(String nameOnTheCard) {
 		this.nameOnTheCard = nameOnTheCard;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public boolean isValidDiscountCode() {
@@ -128,9 +137,9 @@ public class Ticket implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", nameOnTheCard=" + nameOnTheCard + ", isValidDiscountCode=" + isValidDiscountCode + ", selectedTicketType="
-				+ selectedTicketType + ", totalPrice=" + totalPrice + ", discountAmount=" + discountAmount + ", discountCode=" + discountCode
-				+ ", discountCodeMessage=" + discountCodeMessage + ", binQueryHasError=" + binQueryHasError + ", ticketDate=" + ticketDate + "]";
+		return "Ticket [id=" + id + ", nameOnTheCard=" + nameOnTheCard + ", email=" + email + ", isValidDiscountCode=" + isValidDiscountCode
+				+ ", selectedTicketType=" + selectedTicketType + ", totalPrice=" + totalPrice + ", discountAmount=" + discountAmount + ", discountCode="
+				+ discountCode + ", discountCodeMessage=" + discountCodeMessage + ", binQueryHasError=" + binQueryHasError + ", ticketDate=" + ticketDate + "]";
 	}
 
 }

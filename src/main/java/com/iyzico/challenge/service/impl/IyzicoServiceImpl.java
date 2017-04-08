@@ -1,36 +1,31 @@
-package com.iyzico.challenge.iyzico.integration;
+package com.iyzico.challenge.service.impl;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.stereotype.Service;
 
 import com.iyzico.challenge.payment.utils.IyzicoQueryOptions;
+import com.iyzico.challenge.service.IyzicoService;
 import com.iyzico.challenge.ticket.utils.TicketUtils;
 import com.iyzipay.model.BinNumber;
 import com.iyzipay.model.Locale;
 import com.iyzipay.request.RetrieveBinNumberRequest;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class BinNumberQuery {
-
-	@Autowired
-	TicketUtils ticketUtils;
+@Service
+public class IyzicoServiceImpl implements IyzicoService {
 	@Autowired
 	IyzicoQueryOptions iyzicoQueryOptions;
+	@Autowired
+	TicketUtils ticketUtils;
 
-	@Test
-	public void createBinNumber() {
-
+	@Override
+	public BinNumber binNumberQuery(String cardNumber) {
 		RetrieveBinNumberRequest request = new RetrieveBinNumberRequest();
 		request.setLocale(Locale.TR.getValue());
 		request.setConversationId(ticketUtils.createConversationID());
-		request.setBinNumber("552608");
+		request.setBinNumber(cardNumber);
 
 		BinNumber binNumber = BinNumber.retrieve(request, iyzicoQueryOptions.getQueryOptions());
-		System.out.println(binNumber);
+		return binNumber;
 	}
 
 }

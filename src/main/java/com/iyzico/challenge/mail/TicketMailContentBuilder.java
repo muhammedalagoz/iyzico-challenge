@@ -29,7 +29,7 @@ public class TicketMailContentBuilder {
 			Optional<TicketDiscount> discount = this.ticketDiscountService.findByDiscountCode(ticket.getDiscountCode());
 
 			if (discount.isPresent()) {
-				context.setVariable("discount", discount);
+				context.setVariable("discount", discount.get());
 			}
 
 		}

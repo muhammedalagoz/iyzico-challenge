@@ -1,6 +1,7 @@
 package com.iyzico.challenge.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -18,8 +19,8 @@ import com.iyzico.challenge.entity.Speaker;
 @Transactional
 public interface SpeakerRepository extends JpaRepository<Speaker, Long> {
 
-	List<Speaker> findByFirstName(String firstName);
+	Optional<List<Speaker>> findByFirstName(String firstName);
 
-	List<Speaker> findBySubject(String subject);
+	Optional<List<Speaker>> findBySubject(String subject);
 
 }

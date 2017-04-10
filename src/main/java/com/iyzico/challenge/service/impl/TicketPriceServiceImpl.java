@@ -31,4 +31,9 @@ public class TicketPriceServiceImpl implements TicketPriceService {
 		return this.ticketPriceRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(start, end);
 	}
 
+	@Override
+	public Optional<TicketPrice> findByTicketType(String ticketType) {
+		return this.ticketPriceRepository.findByTicketType(ticketType);
+	}
+
 }

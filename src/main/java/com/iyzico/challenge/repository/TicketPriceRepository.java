@@ -19,6 +19,8 @@ import com.iyzico.challenge.entity.TicketPrice;
 @Transactional
 public interface TicketPriceRepository extends JpaRepository<TicketPrice, Long> {
 
+	Optional<TicketPrice> findByTicketType(String ticketType);
+
 	Optional<TicketPrice> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(Date start, Date end);
 
 }

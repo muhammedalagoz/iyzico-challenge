@@ -20,6 +20,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().headers().frameOptions().disable();
 		http.authorizeRequests().antMatchers("/static/**").permitAll();
+
+		// // other antMatchers can follow here
+		// http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/admin").fullyAuthenticated().and().formLogin().loginPage("/login")
+		// .failureUrl("/login?error").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		// TODO may be use for list all ticket
+
 	}
 
 	@Override

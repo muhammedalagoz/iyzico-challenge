@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.iyzico.TestUtils;
 import com.iyzico.challenge.entity.TicketDiscount;
 import com.iyzico.challenge.entity.TicketPrice;
 import com.iyzico.challenge.price.utils.PriceUtils;
@@ -26,7 +27,7 @@ import com.iyzipay.model.Status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RegisterTest {
+public class RegisterTest extends TestUtils {
 
 	@Autowired
 	RegisterTestUtil registerUtil;
@@ -95,6 +96,7 @@ public class RegisterTest {
 						output.append(binNumber.getStatus()).append(",");
 					}
 
+					this.logger.info(register.getTransactionCode() + "," + register.getCardNumber());
 					assertEquals(register.getExpected(), output.toString());
 				});
 

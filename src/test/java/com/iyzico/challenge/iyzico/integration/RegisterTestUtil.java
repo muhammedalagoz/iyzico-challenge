@@ -7,16 +7,15 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import com.iyzico.TestUtils;
+
 @Component
-public class RegisterTestUtil {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class RegisterTestUtil extends TestUtils {
 
 	@Autowired
 	private Environment env;

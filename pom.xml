@@ -21,6 +21,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<iyzico-java.version>2.0.41</iyzico-java.version>
 		<swagger.version>2.4.0</swagger.version>
 		<greenmail.version>1.5.3</greenmail.version>
 		<commons-lang.version>2.6</commons-lang.version>
@@ -75,7 +76,7 @@
 		<dependency>
 			<groupId>com.iyzipay</groupId>
 			<artifactId>iyzipay-java</artifactId>
-			<version>2.0.41</version>
+			<version>${iyzico-java.version}</version>
 		</dependency>
 
 		<!-- in memory h2 dependency -->

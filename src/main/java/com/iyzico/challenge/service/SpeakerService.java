@@ -1,6 +1,7 @@
 package com.iyzico.challenge.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.iyzico.challenge.entity.Speaker;
 
@@ -13,8 +14,8 @@ public interface SpeakerService {
 
 	List<Speaker> findAll();
 
-	List<Speaker> findByFirstName(String firstName);
+	Optional<List<Speaker>> findByFirstName(String firstName);
 
-	List<Speaker> findBySubject(String subject);
+	Optional<List<Speaker>> findBySubject(String subject);
 
 }

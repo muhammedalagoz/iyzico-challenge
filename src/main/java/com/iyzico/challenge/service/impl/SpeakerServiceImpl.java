@@ -1,6 +1,7 @@
 package com.iyzico.challenge.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,12 @@ public class SpeakerServiceImpl implements SpeakerService {
 	SpeakerRepository speakerRepository;
 
 	@Override
-	public List<Speaker> findByFirstName(String firstName) {
+	public Optional<List<Speaker>> findByFirstName(String firstName) {
 		return this.speakerRepository.findByFirstName(firstName);
 	}
 
 	@Override
-	public List<Speaker> findBySubject(String subject) {
+	public Optional<List<Speaker>> findBySubject(String subject) {
 		return this.speakerRepository.findBySubject(subject);
 	}
 

@@ -14,5 +14,7 @@ import com.iyzico.challenge.entity.TicketPrice;
 public interface TicketPriceService {
 	List<TicketPrice> findAll();
 
+	Optional<TicketPrice> findByTicketType(String ticketType);
+
 	Optional<TicketPrice> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(Date start, Date end);
 }

@@ -44,61 +44,65 @@ public class RegisterTest extends TestUtils {
 
 	@Test
 	public void checkRegisterInputCount() {
-		assertEquals(this.registerUtil.getTestCount().intValue(), this.registerUtil.getRegisters().size());
+		assertEquals(registerUtil.getTestCount().intValue(), registerUtil.getRegisters().size());
 	}
 
 	@Test
 	public void transactionOfRegisterTest() {
 
-		this.registerUtil
-				.getRegisters()
-				.stream()
-				.forEach(register -> {
-					StringBuilder output = new StringBuilder();
-					output.append(register.getTransactionCode()).append(",");
+		StringBuffer finalOutput = new StringBuffer();
+		registerUtil
+		.getRegisters()
+		.stream()
+		.forEach(register -> {
+			StringBuilder output = new StringBuilder();
+			output.append(register.getTransactionCode()).append(",");
 
-					BinNumber binNumber = this.iyzicoService.binNumberQuery(register.getCardNumber().substring(0, 6));
+			BinNumber binNumber = iyzicoService.binNumberQuery(register.getCardNumber().substring(0, 6));
 
-					if (binNumber.getStatus().equalsIgnoreCase(Status.SUCCESS.getValue())) {
-						// eğer success ise price bulalım.
+			if (binNumber.getStatus().equalsIgnoreCase(Status.SUCCESS.getValue())) {
+				// eğer success ise price bulalım.
 
-						List<String> cardTypes = new ArrayList<String>();
-						if (StringUtils.equalsIgnoreCase(binNumber.getCardType(), "CREDIT_CARD")) {
-							cardTypes.addAll(this.ticketService.getAllowedCreditCards());
-						} else if (StringUtils.equalsIgnoreCase(binNumber.getCardType(), "DEBIT_CARD")) {
-							cardTypes.addAll(this.ticketService.getAllowedDebitCards());
-						}
+				List<String> cardTypes = new ArrayList<String>();
+				if (StringUtils.equalsIgnoreCase(binNumber.getCardType(), "CREDIT_CARD")) {
+					cardTypes.addAll(ticketService.getAllowedCreditCards());
+				} else if (StringUtils.equalsIgnoreCase(binNumber.getCardType(), "DEBIT_CARD")) {
+					cardTypes.addAll(ticketService.getAllowedDebitCards());
+				}
 
-						if (cardTypes.contains(binNumber.getBankName())) {
-							output.append(Status.SUCCESS.getValue()).append(",");
-							// bankaya izin veriliyor ise ödenecek tutarı bulalım.
+				if (cardTypes.contains(binNumber.getBankName())) {
+					output.append(Status.SUCCESS.getValue()).append(",");
+					// bankaya izin veriliyor ise ödenecek tutarı bulalım.
 
-							Optional<TicketPrice> price = this.ticketPriceService.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(
-									register.getTransacitonDate(), register.getTransacitonDate());
+					Optional<TicketPrice> price = ticketPriceService.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(
+							register.getTransacitonDate(), register.getTransacitonDate());
 
-							if (price.isPresent()) {
-								// if discount code exist, find discount rate
-								Optional<TicketDiscount> discount = this.ticketDiscountService.findByDiscountCode(register.getDiscountCode());
+					if (price.isPresent()) {
+						// if discount code exist, find discount rate
+						Optional<TicketDiscount> discount = ticketDiscountService.findByDiscountCode(register.getDiscountCode());
 
-								if (discount.isPresent()) {
-									BigDecimal finalPrice = this.priceUtil.processDiscountCodeAndReturnPrice(price.get(), discount.get());
-									output.append(finalPrice);
-								} else {
-									output.append(price.get().getTicketPrice());
-								}
-							}
-
+						if (discount.isPresent()) {
+							BigDecimal finalPrice = priceUtil.processDiscountCodeAndReturnPrice(price.get(), discount.get());
+							output.append(finalPrice);
 						} else {
-							output.append(Status.FAILURE.getValue()).append(",");
+							output.append(price.get().getTicketPrice());
 						}
-
-					} else {
-						output.append(binNumber.getStatus()).append(",");
 					}
 
-					this.logger.info(register.getTransactionCode() + "," + register.getCardNumber());
-					assertEquals(register.getExpected(), output.toString());
-				});
+				} else {
+					output.append(Status.FAILURE.getValue()).append(",");
+				}
+
+			} else {
+				output.append(binNumber.getStatus()).append(",");
+			}
+
+			finalOutput.append(output).append("\n");
+			logger.info(register.getTransactionCode() + "," + register.getCardNumber());
+			assertEquals(register.getExpected(), output.toString());
+		});
+
+		logger.info("Final output;\n" + finalOutput.toString());
 
 	}
 }

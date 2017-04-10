@@ -1,0 +1,5 @@
+projectKey=iyzico-challenge
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/iyzico-challenge
+ceTaskId=AVtX3PLudwV0-w6lO_6Z
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVtX3PLudwV0-w6lO_6Z

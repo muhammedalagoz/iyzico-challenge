@@ -192,3 +192,7 @@ Aşağıdaki adımları takip edebilirsiniz;
   > cd iyzico-challenge
 
 3. Herhangi bir IDE yardımı ile maven projesi olarak import ettikten sonra çalışmaya başlayabilirsiniz.
+
+Teşekkürler.
+
+~ A.Akkuş

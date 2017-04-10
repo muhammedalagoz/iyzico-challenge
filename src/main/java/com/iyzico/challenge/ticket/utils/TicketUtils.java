@@ -22,20 +22,12 @@ public class TicketUtils {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 
-	public void setAllowedCreditCards(List<String> allowedCreditCards) {
-		this.allowedCreditCards = allowedCreditCards;
-	}
-
-	public void setAllowedDebitCards(List<String> allowedDebitCards) {
-		this.allowedDebitCards = allowedDebitCards;
-	}
-
 	public List<String> getAllowedCreditCards() {
-		return allowedCreditCards;
+		return this.allowedCreditCards;
 	}
 
 	public List<String> getAllowedDebitCards() {
-		return allowedDebitCards;
+		return this.allowedDebitCards;
 	}
 
 	public synchronized String createConversationID() {

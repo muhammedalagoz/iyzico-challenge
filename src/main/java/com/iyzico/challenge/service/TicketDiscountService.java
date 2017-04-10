@@ -1,6 +1,7 @@
 package com.iyzico.challenge.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.iyzico.challenge.entity.TicketDiscount;
 
@@ -12,5 +13,5 @@ import com.iyzico.challenge.entity.TicketDiscount;
 public interface TicketDiscountService {
 	List<TicketDiscount> findAll();
 
-	TicketDiscount findByDiscountCode(String code);
+	Optional<TicketDiscount> findByDiscountCode(String code);
 }

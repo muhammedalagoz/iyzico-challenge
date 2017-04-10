@@ -1,4 +1,4 @@
-package com.iyzico.challenge.payment.utils;
+package com.iyzico.challenge.register.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,39 +17,27 @@ public class IyzicoQueryOptions {
 	private Options queryOptions;
 
 	public String getApiKey() {
-		return apiKey;
-	}
-
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
+		return this.apiKey;
 	}
 
 	public String getApiSecret() {
-		return apiSecret;
-	}
-
-	public void setApiSecret(String apiSecret) {
-		this.apiSecret = apiSecret;
+		return this.apiSecret;
 	}
 
 	public String getApiBaseUrl() {
-		return apiBaseUrl;
-	}
-
-	public void setApiBaseUrl(String apiBaseUrl) {
-		this.apiBaseUrl = apiBaseUrl;
+		return this.apiBaseUrl;
 	}
 
 	public Options getQueryOptions() {
 
-		if (queryOptions == null) {
-			queryOptions = new Options();
-			queryOptions.setApiKey(apiKey);
-			queryOptions.setSecretKey(apiSecret);
-			queryOptions.setBaseUrl(apiBaseUrl);
+		if (this.queryOptions == null) {
+			this.queryOptions = new Options();
+			this.queryOptions.setApiKey(this.apiKey);
+			this.queryOptions.setSecretKey(this.apiSecret);
+			this.queryOptions.setBaseUrl(this.apiBaseUrl);
 		}
 
-		return queryOptions;
+		return this.queryOptions;
 	}
 
 }

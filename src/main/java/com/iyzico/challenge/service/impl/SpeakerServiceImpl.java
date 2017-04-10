@@ -22,17 +22,17 @@ public class SpeakerServiceImpl implements SpeakerService {
 
 	@Override
 	public List<Speaker> findByFirstName(String firstName) {
-		return speakerRepository.findByFirstName(firstName);
+		return this.speakerRepository.findByFirstName(firstName);
 	}
 
 	@Override
 	public List<Speaker> findBySubject(String subject) {
-		return speakerRepository.findBySubject(subject);
+		return this.speakerRepository.findBySubject(subject);
 	}
 
 	@Override
 	public List<Speaker> findAll() {
-		return speakerRepository.findAll();
+		return this.speakerRepository.findAll();
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.iyzico.challenge.repository;
 
+import java.util.Date;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +18,7 @@ import com.iyzico.challenge.entity.TicketPrice;
 @Repository
 @Transactional
 public interface TicketPriceRepository extends JpaRepository<TicketPrice, Long> {
+
+	Optional<TicketPrice> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(Date start, Date end);
 
 }

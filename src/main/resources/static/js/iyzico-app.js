@@ -56,6 +56,15 @@ const iyzicoApp = new Vue({
             });
          },
          methods :{
+        	 isNumber: function(evt) {
+        	      evt = (evt) ? evt : window.event;
+        	      var charCode = (evt.which) ? evt.which : evt.keyCode;
+        	      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        	        evt.preventDefault();
+        	      } else {
+        	        return true;
+        	      }
+        	 },
         	 calculateRemaininDay: function(){
         		//Get 1 day in milliseconds
         		var oneDay=1000*60*60*24;
@@ -111,25 +120,29 @@ const iyzicoApp = new Vue({
 					this.$http.get(iyzcioApiBinQueryUrl + "/" + this.ticket.cardNumber.substring(0,6))
 					.then(function(response){
 						this.ticket.binNumber = response.data;
-						if(this.ticket.binNumber.cardType == "CREDIT_CARD"){
-							if(this.permittedCreditCards.includes(this.ticket.binNumber.bankName)){
-								this.message = "Congratulations! Your ticket has been registered.";
-								this.ticket.binQueryHasError = false;
-							}else{
-								this.message = "Unsupported Bank. Please use the another one!";
-								this.ticket.binQueryHasError = true;
+						if(this.ticket.binNumber.status == "success"){
+							this.ticket.binNumber = response.data;
+							if(this.ticket.binNumber.cardType == "CREDIT_CARD"){
+								if(this.permittedCreditCards.includes(this.ticket.binNumber.bankName)){
+									this.message = "Congratulations! Your ticket has been registered.";
+									this.ticket.binQueryHasError = false;
+								}else{
+									this.message = "Unsupported Bank. Please use the another one!";
+									this.ticket.binQueryHasError = true;
+								}
+							}else if(this.ticket.binNumber.cardType == "DEBIT_CARD"){
+								if(this.permittedDebitCards.includes(this.ticket.binNumber.bankName)){
+									this.message = "Congratulations! Your ticket has been registered.";
+									this.ticket.binQueryHasError = false;
+								}else{
+									this.message = "Unsupported Debit Card. You can use the only 'Halk Bankası'!";
+									this.ticket.binQueryHasError = true;
+								}
 							}
-						}else if(this.ticket.binNumber.cardType == "DEBIT_CARD"){
-							if(this.permittedDebitCards.includes(this.ticket.binNumber.bankName)){
-								this.message = "Congratulations! Your ticket has been registered.";
-								this.ticket.binQueryHasError = false;
-							}else{
-								this.message = "Unsupported Debit Card. You can use the only 'Halk Bankası'!";
-								this.ticket.binQueryHasError = true;
-							}
+						}else{
+							this.message = "Hata detayı : " + this.ticket.binNumber.errorMessage + " Hata kodu : " + this.ticket.binNumber.errorCode;
+							this.ticket.binQueryHasError = true;
 						}
-						
-						
 					});
 				}else{
 					this.message = "Please use the valid card!";
@@ -138,6 +151,10 @@ const iyzicoApp = new Vue({
 
 				// hata yok ve işlem tamamlandı ise modal'ı da kapatalım.
 				if(!this.ticket.binQueryHasError){
+					if(this.ticket.isValidDiscountCode == false){
+						//code yazıldı ama kullanılmadı ise register edilen bean içerisinde code gitmesin.
+						this.ticket.discountCode = '';
+					}
 					this.$http.post(registerApiUrl, this.ticket)
 						.then(function(response){
 							var isTicketRegistered = Boolean(response.data);
@@ -148,9 +165,9 @@ const iyzicoApp = new Vue({
 								this.ticket.binQueryHasError = true;
 								this.message = "Ticket could't be registered yet. Please try later :(";
 							}
-							$('#messageModal').modal('show');
 						});
 				}
+				$('#messageModal').modal('show');
 			},
 			checkIfRegistered: function(){
 				
@@ -158,7 +175,6 @@ const iyzicoApp = new Vue({
 					 this.ticket = {
 		        		 nameOnTheCard : '',
 		        		 selectedTicketType : '',
-		        		 isValidDiscountCode : '',
 		        		 isValidDiscountCode : false,
 		        		 discountCodeMessage: '',
 		        		 discountCode: '',

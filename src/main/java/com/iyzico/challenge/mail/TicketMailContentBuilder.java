@@ -1,5 +1,7 @@
 package com.iyzico.challenge.mail;
 
+import java.util.Optional;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +26,14 @@ public class TicketMailContentBuilder {
 		context.setVariable("ticket", ticket);
 
 		if (StringUtils.isNotBlank(ticket.getDiscountCode())) {
-			TicketDiscount discount = ticketDiscountService.findByDiscountCode(ticket.getDiscountCode());
+			Optional<TicketDiscount> discount = this.ticketDiscountService.findByDiscountCode(ticket.getDiscountCode());
 
-			context.setVariable("discount", discount);
+			if (discount.isPresent()) {
+				context.setVariable("discount", discount);
+			}
+
 		}
 
-		return engine.process("mail", context);
+		return this.engine.process("mail", context);
 	}
 }

@@ -51,58 +51,71 @@ public class TicketController {
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List<Speakers>"),
 			@ApiResponse(code = 500, message = "Error occurred while fetching Speakers") })
 	@ResponseBody
-	@RequestMapping("/speakers")
-	public List<Speaker> getSpeakers() {
-		return speakService.findAll();
+	@RequestMapping(value = "/speakers", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<Speaker>> getSpeakers() {
+		this.logger.info("TicketController - getSpeakers() method is called.");
+
+		return new ResponseEntity<List<Speaker>>(this.speakService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get prices", notes = "Fetch List of Price")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List<TicketPrice>"),
 			@ApiResponse(code = 500, message = "Error occurred while fetching Prices") })
 	@ResponseBody
-	@RequestMapping("/prices")
-	public List<TicketPrice> getTicketPrices() {
-		return ticketPriceService.findAll();
+	@RequestMapping(value = "/prices", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<TicketPrice>> getTicketPrices() {
+		this.logger.info("TicketController - getTicketPrices() method is called.");
+		return new ResponseEntity<List<TicketPrice>>(this.ticketPriceService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get discounts", notes = "Fetch List of Discount")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List<TicketDiscount>"),
 			@ApiResponse(code = 500, message = "Error occurred while fetching Discounts") })
 	@ResponseBody
-	@RequestMapping("/discounts")
-	public List<TicketDiscount> getTicketDiscount() {
-		return ticketDiscountService.findAll();
+	@RequestMapping(value = "/discounts", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<TicketDiscount>> getTicketDiscount() {
+		this.logger.info("TicketController - getTicketDiscount() method is called.");
+
+		return new ResponseEntity<List<TicketDiscount>>(this.ticketDiscountService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get allowed credit cards for register", notes = "Fetch List of allowed credit card")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List"),
 			@ApiResponse(code = 500, message = "Error occurred while fetching allowed credit cards") })
 	@ResponseBody
-	@RequestMapping("/allowed/creditCards")
-	public List<String> getAllowedCreditCards() {
-		return ticketService.getAllowedCreditCards();
+	@RequestMapping(value = "/allowed/creditCards", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<String>> getAllowedCreditCards() {
+		this.logger.info("TicketController - getAllowedCreditCards() method is called.");
+
+		return new ResponseEntity<List<String>>(this.ticketService.getAllowedCreditCards(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get allowed debit cards for register", notes = "Fetch List of allowed debit card")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List"),
 			@ApiResponse(code = 500, message = "Error occurred while fetching allowed debit card") })
 	@ResponseBody
-	@RequestMapping("/allowed/debitCards")
-	public List<String> getAllowedDebitCards() {
-		return ticketService.getAllowedDebitCards();
+	@RequestMapping(value = "/allowed/debitCards", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<String>> getAllowedDebitCards() {
+		this.logger.info("TicketController - getAllowedCreditCards() method is called.");
+
+		return new ResponseEntity<List<String>>(this.ticketService.getAllowedDebitCards(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Create new register", notes = "Create new request ")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 400, message = "Fields are with validation errors"),
 			@ApiResponse(code = 200, message = "List"), @ApiResponse(code = 500, message = "Error occurred while creating register") })
 	@ResponseBody
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<Boolean> ticketRegister(@RequestBody @Valid Ticket ticket) {
+		this.logger.info("TicketController - ticketRegister() method is called.");
 		try {
-			ticketService.save(ticket);
-			ticketMailService.prepareAndSend(ticket);
+			this.ticketService.save(ticket);
+
+			if (this.ticketMailService.isMailNotificationEnabled()) {
+				this.ticketMailService.prepareAndSend(ticket);
+			}
 		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
+			this.logger.error(e.getMessage(), e);
 			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 		}
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);

@@ -20,49 +20,29 @@ public class Application {
 	private String[] reviewers;
 
 	public String getApplicationName() {
-		return applicationName;
-	}
-
-	public void setApplicationName(String applicationName) {
-		this.applicationName = applicationName;
+		return this.applicationName;
 	}
 
 	public String getApplicationVersion() {
-		return applicationVersion;
-	}
-
-	public void setApplicationVersion(String applicationVersion) {
-		this.applicationVersion = applicationVersion;
+		return this.applicationVersion;
 	}
 
 	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+		return this.createdBy;
 	}
 
 	public String[] getReviewers() {
-		return reviewers;
-	}
-
-	public void setReviewers(String[] reviewers) {
-		this.reviewers = reviewers;
+		return this.reviewers;
 	}
 
 	public String getApplicationDescription() {
-		return applicationDescription;
-	}
-
-	public void setApplicationDescription(String applicationDescription) {
-		this.applicationDescription = applicationDescription;
+		return this.applicationDescription;
 	}
 
 	@Override
 	public String toString() {
-		return "Application [applicationName=" + applicationName + ", applicationDescription=" + applicationDescription + ", applicationVersion="
-				+ applicationVersion + ", createdBy=" + createdBy + ", reviewers=" + Arrays.toString(reviewers) + "]";
+		return "Application [applicationName=" + this.applicationName + ", applicationDescription=" + this.applicationDescription + ", applicationVersion="
+				+ this.applicationVersion + ", createdBy=" + this.createdBy + ", reviewers=" + Arrays.toString(this.reviewers) + "]";
 	}
 
 }

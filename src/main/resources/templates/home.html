@@ -209,7 +209,7 @@
 								<div class="form-group">
 									<label class="control-label col-sm-4" for="cardNumber">Card Number:</label>
 									<div class="col-sm-6">
-										<input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" v-model="ticket.cardNumber" required="required" />
+										<input type="text" class="form-control" id="cardNumber" maxlength="16" placeholder="Enter card number" v-on:keypress="isNumber(event)" v-model="ticket.cardNumber" required="required" />
 									</div>
 								</div>
 								<div class="form-group">

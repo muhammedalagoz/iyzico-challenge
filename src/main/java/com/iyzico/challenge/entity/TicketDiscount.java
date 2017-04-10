@@ -27,7 +27,7 @@ public class TicketDiscount {
 	private Float discountRate;
 
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -35,7 +35,7 @@ public class TicketDiscount {
 	}
 
 	public String getImportanceOfDay() {
-		return importanceOfDay;
+		return this.importanceOfDay;
 	}
 
 	public void setImportanceOfDay(String importanceOfDay) {
@@ -43,7 +43,7 @@ public class TicketDiscount {
 	}
 
 	public String getDiscountCode() {
-		return discountCode;
+		return this.discountCode;
 	}
 
 	public void setDiscountCode(String discountCode) {
@@ -51,7 +51,7 @@ public class TicketDiscount {
 	}
 
 	public Date getAvailableDiscountStartDate() {
-		return availableDiscountStartDate;
+		return this.availableDiscountStartDate;
 	}
 
 	public void setAvailableDiscountStartDate(Date availableDiscountStartDate) {
@@ -59,7 +59,7 @@ public class TicketDiscount {
 	}
 
 	public Date getAvailableDiscountEndDate() {
-		return availableDiscountEndDate;
+		return this.availableDiscountEndDate;
 	}
 
 	public void setAvailableDiscountEndDate(Date availableDiscountEndDate) {
@@ -67,7 +67,7 @@ public class TicketDiscount {
 	}
 
 	public Float getDiscountRate() {
-		return discountRate;
+		return this.discountRate;
 	}
 
 	public void setDiscountRate(Float discountRate) {
@@ -77,12 +77,12 @@ public class TicketDiscount {
 	@Override
 	public String toString() {
 		StringBuilder ticketDiscountAsString = new StringBuilder();
-		ticketDiscountAsString.append("TicketDiscount [id=").append(id);
-		ticketDiscountAsString.append(", importanceOfDay=").append(importanceOfDay);
-		ticketDiscountAsString.append(", discountCode=").append(discountCode);
-		ticketDiscountAsString.append(", availableDiscountStartDate=").append(availableDiscountStartDate);
-		ticketDiscountAsString.append(", availableDiscountEndDate=").append(availableDiscountEndDate);
-		ticketDiscountAsString.append(", discountRate=").append(discountRate).append(" ]");
+		ticketDiscountAsString.append("TicketDiscount [id=").append(this.id);
+		ticketDiscountAsString.append(", importanceOfDay=").append(this.importanceOfDay);
+		ticketDiscountAsString.append(", discountCode=").append(this.discountCode);
+		ticketDiscountAsString.append(", availableDiscountStartDate=").append(this.availableDiscountStartDate);
+		ticketDiscountAsString.append(", availableDiscountEndDate=").append(this.availableDiscountEndDate);
+		ticketDiscountAsString.append(", discountRate=").append(this.discountRate).append(" ]");
 
 		return ticketDiscountAsString.toString();
 	}

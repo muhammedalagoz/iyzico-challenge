@@ -10,6 +10,9 @@ import com.iyzico.challenge.entity.Ticket;
  * */
 
 public interface TicketService {
+
+	public List<Ticket> findAll();
+
 	public void save(Ticket ticket);
 
 	public List<String> getAllowedCreditCards();

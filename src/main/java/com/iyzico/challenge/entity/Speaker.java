@@ -28,18 +28,8 @@ public class Speaker {
 		super();
 	}
 
-	public Speaker(Long id, String firstName, String lastName, String image, String subject, String subjectDetails) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.image = image;
-		this.subject = subject;
-		this.subjectDetails = subjectDetails;
-	}
-
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -47,7 +37,7 @@ public class Speaker {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -55,7 +45,7 @@ public class Speaker {
 	}
 
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String lastName) {
@@ -63,7 +53,7 @@ public class Speaker {
 	}
 
 	public String getImage() {
-		return image;
+		return this.image;
 	}
 
 	public void setImage(String image) {
@@ -75,11 +65,11 @@ public class Speaker {
 	}
 
 	public String getSubject() {
-		return subject;
+		return this.subject;
 	}
 
 	public String getSubjectDetails() {
-		return subjectDetails;
+		return this.subjectDetails;
 	}
 
 	public void setSubjectDetails(String subjectDetails) {
@@ -89,12 +79,12 @@ public class Speaker {
 	@Override
 	public String toString() {
 		StringBuilder speakerAsString = new StringBuilder();
-		speakerAsString.append("Speaker [ id=").append(id).append(",");
-		speakerAsString.append(" firstName=").append(firstName).append(",");
-		speakerAsString.append(" lastName=").append(lastName).append(",");
-		speakerAsString.append(" image=").append(image);
-		speakerAsString.append(" subject=").append(subject);
-		speakerAsString.append(" subjectDetails=").append(subjectDetails).append(" ]");
+		speakerAsString.append("Speaker [ id=").append(this.id).append(",");
+		speakerAsString.append(" firstName=").append(this.firstName).append(",");
+		speakerAsString.append(" lastName=").append(this.lastName).append(",");
+		speakerAsString.append(" image=").append(this.image);
+		speakerAsString.append(" subject=").append(this.subject);
+		speakerAsString.append(" subjectDetails=").append(this.subjectDetails).append(" ]");
 
 		return speakerAsString.toString();
 	}

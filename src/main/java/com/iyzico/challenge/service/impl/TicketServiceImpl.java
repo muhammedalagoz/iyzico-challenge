@@ -24,16 +24,21 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public void save(Ticket ticket) {
-		ticketRepository.save(ticket);
+		this.ticketRepository.save(ticket);
+	}
+
+	@Override
+	public List<Ticket> findAll() {
+		return this.ticketRepository.findAll();
 	}
 
 	@Override
 	public List<String> getAllowedCreditCards() {
-		return ticketUtils.getAllowedCreditCards();
+		return this.ticketUtils.getAllowedCreditCards();
 	}
 
 	@Override
 	public List<String> getAllowedDebitCards() {
-		return ticketUtils.getAllowedDebitCards();
+		return this.ticketUtils.getAllowedDebitCards();
 	}
 }

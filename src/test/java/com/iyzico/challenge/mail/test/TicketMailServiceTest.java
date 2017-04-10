@@ -53,9 +53,6 @@ public class TicketMailServiceTest {
 
 		Message[] messages = testSmtp.getReceivedMessages();
 		assertEquals(1, messages.length);
-		// assertEquals("test subject", messages[0].getSubject());
-		// String body = GreenMailUtil.getBody(messages[0]).replaceAll("=\r?\n", "");
-		// assertEquals("test message", body);
 	}
 
 	@After

@@ -23,32 +23,38 @@ public class TicketMailService {
 	private TicketMailContentBuilder mailContentBuilder;
 	@Value("${spring.mail.username}")
 	private String from;
+	@Value("${iyzico-challenge.ticket.mail.notification.enabled:false}")
+	private boolean mailNotificationEnabled;
 
 	public void prepareAndSend(Ticket ticket) {
+		this.logger.info("TicketMailService - prepareAndSend() method is called.");
 		try {
 			MimeMessagePreparator messagePreparator = mimeMessage -> {
-				String content = mailContentBuilder.build(ticket);
+				String content = this.mailContentBuilder.build(ticket);
 				MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
-				messageHelper.setFrom(from);
+				messageHelper.setFrom(this.from);
 				messageHelper.setTo(ticket.getEmail());
 				messageHelper.setSubject("Event registering informatin");
 				messageHelper.setText(content, true);
 				messageHelper.setSentDate(new Date());
 			};
-			mailSender.send(messagePreparator);
+			this.mailSender.send(messagePreparator);
 		} catch (MailException e) {
-			logger.error(e, e);
+			this.logger.error(e, e);
 			throw e;
 		}
 	}
 
 	// for testing purpose
 	public void setPort(int port) {
-		mailSender.setPort(port);
+		this.mailSender.setPort(port);
 	}
 
 	public void setHost(String host) {
-		mailSender.setHost(host);
+		this.mailSender.setHost(host);
 	}
 
+	public boolean isMailNotificationEnabled() {
+		return this.mailNotificationEnabled;
+	}
 }

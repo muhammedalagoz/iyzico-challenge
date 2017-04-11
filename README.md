@@ -20,7 +20,7 @@ gerekmektedir. Katılımcıların konferans hakkında bilgi alabileceği, konuş
 * swagger(v2.4.0)
 * commons-lang(v2.6)
 
-Uygulamaya heroku üzerinden erişebilirsiniz :
+Uygulamaya heroku üzerinden erişebilirsiniz : [iyzico-challenge](https://iyzico-challenge.herokuapp.com)
 
 ### Uygulama davranışları
 
@@ -86,6 +86,17 @@ Bilet alma işlemi başarıyla tamamlandığı taktirde mail ile ticket'ın tama
 > Ticket alma işleminde mail gönderme işlevi uygulamanın properties dosyasından enable/disable edilebilir.
 
 Bildirim gönderebilmek için gmail smtp sunucusu kullanılmıştır. **iyzico-challenge** için bir kullanıcı hesapı oluşturulmuş olup, properties dosyasından değiştirilebilir.
+
+#### H2 in-memory DB
+
+Konuşmacılar, bilet ücretleri ve indirim kodları gibi veriler db üzerinde tutulmaktadır. Konferans'a kayıt olduktan sonra ticket bilgisi de veritabanına yazılmaktadır. Local'de çalışırken h2 veritabanını görüntüleyebilmek için /h2-console adresine gitmeniz yeterli olacaktır. Aşağıdaki bilgiler ile login olabilir, veritabanını inceleyebilirsiniz;
+
+| name          | value               |
+| ------------- |:-------------------:|
+| Driver class  | org.h2.Driver       |
+| JDBC url      | jdbc:h2:mem:iyzico  |  
+| username      | iyzico              |
+| password      | challenge           |
 
 ### CI Build
 

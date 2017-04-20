@@ -22,12 +22,12 @@ public class TicketDiscountServiceImpl implements TicketDiscountService {
 
 	@Override
 	public List<TicketDiscount> findAll() {
-		return this.ticketDiscountRepository.findAll();
+		return ticketDiscountRepository.findAll();
 	}
 
 	@Override
-	public Optional<TicketDiscount> findByDiscountCode(String code) {
-		return this.ticketDiscountRepository.findByDiscountCode(code);
+	public Optional<TicketDiscount> findByCode(String code) {
+		return ticketDiscountRepository.findByCode(code);
 	}
 
 }

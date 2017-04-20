@@ -26,7 +26,7 @@ public class TicketMailContentBuilder {
 		context.setVariable("ticket", ticket);
 
 		if (StringUtils.isNotBlank(ticket.getDiscountCode())) {
-			Optional<TicketDiscount> discount = this.ticketDiscountService.findByDiscountCode(ticket.getDiscountCode());
+			Optional<TicketDiscount> discount = ticketDiscountService.findByCode(ticket.getDiscountCode());
 
 			if (discount.isPresent()) {
 				context.setVariable("discount", discount.get());
@@ -34,6 +34,6 @@ public class TicketMailContentBuilder {
 
 		}
 
-		return this.engine.process("mail", context);
+		return engine.process("mail", context);
 	}
 }

@@ -24,14 +24,13 @@ public class PriceUtilsTest {
 
 	@Test
 	public void processDiscountCodeToPrice() {
-
 		TicketPrice ticketPrice = new TicketPrice();
-		ticketPrice.setTicketPrice(BigDecimal.valueOf(250.0));
+		ticketPrice.setPrice(BigDecimal.valueOf(250.0));
 
 		TicketDiscount ticketDiscount = new TicketDiscount();
-		ticketDiscount.setDiscountRate(10f);
+		ticketDiscount.setRate(10f);
 
-		BigDecimal finalPrice = this.priceUtils.processDiscountCodeAndReturnPrice(ticketPrice, ticketDiscount);
+		BigDecimal finalPrice = priceUtils.processDiscountCodeAndReturnPrice(ticketPrice, ticketDiscount);
 		assertEquals(BigDecimal.valueOf(225.0).doubleValue(), finalPrice.doubleValue(), DELTA);
 	}
 

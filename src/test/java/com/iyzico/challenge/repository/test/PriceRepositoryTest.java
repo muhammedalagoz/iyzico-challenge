@@ -23,15 +23,15 @@ public class PriceRepositoryTest {
 
 	@Test
 	public void priceCountTest() {
-		assertEquals(4, this.ticketPriceRepository.findAll().size());
+		assertEquals(4, ticketPriceRepository.findAll().size());
 	}
 
 	@Test
 	public void ticketPriceTest() {
-		Optional<TicketPrice> price = this.ticketPriceRepository.findByTicketType("Regular");
+		Optional<TicketPrice> price = ticketPriceRepository.findByType("Regular");
 
 		if (price.isPresent()) {
-			assertEquals(BigDecimal.valueOf(750.0).doubleValue(), price.get().getTicketPrice().doubleValue(), DELTA);
+			assertEquals(BigDecimal.valueOf(750.0).doubleValue(), price.get().getPrice().doubleValue(), DELTA);
 		}
 	}
 }

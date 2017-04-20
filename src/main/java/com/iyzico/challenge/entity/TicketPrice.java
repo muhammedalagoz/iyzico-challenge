@@ -3,6 +3,7 @@ package com.iyzico.challenge.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,61 +18,70 @@ public class TicketPrice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	@JsonFormat(pattern = "dd.MM.yyyy")
-	Date startDate;
+	@Column(name = "fromDate")
+	Date from;
 	@JsonFormat(pattern = "dd.MM.yyyy")
-	Date endDate;
-	String ticketType;
-	BigDecimal ticketPrice;
+	@Column(name = "toDate")
+	Date to;
+	String type;
+	BigDecimal price;
 
 	public TicketPrice() {
 		super();
 	}
 
-	public TicketPrice(Long id, Date startDate, Date endDate, String ticketType, BigDecimal ticketPrice) {
+	public TicketPrice(Long id, Date from, Date to, String type, BigDecimal price) {
 		super();
 		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.ticketType = ticketType;
-		this.ticketPrice = ticketPrice;
+		this.from = from;
+		this.to = to;
+		this.type = type;
+		this.price = price;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public Long getId() {
+		return id;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Date getEndDate() {
-		return endDate;
+	public Date getFrom() {
+		return from;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setFrom(Date from) {
+		this.from = from;
 	}
 
-	public String getTicketType() {
-		return ticketType;
+	public Date getTo() {
+		return to;
 	}
 
-	public void setTicketType(String ticketType) {
-		this.ticketType = ticketType;
+	public void setTo(Date to) {
+		this.to = to;
 	}
 
-	public BigDecimal getTicketPrice() {
-		return ticketPrice;
+	public String getType() {
+		return type;
 	}
 
-	public void setTicketPrice(BigDecimal ticketPrice) {
-		this.ticketPrice = ticketPrice;
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "TicketPrice [ id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", ticketType=" + ticketType + ", ticketPrice=" + ticketPrice
-				+ "]";
+		return "TicketPrice [id=" + id + ", from=" + from + ", to=" + to + ", type=" + type + ", price=" + price + "]";
 	}
 
 }

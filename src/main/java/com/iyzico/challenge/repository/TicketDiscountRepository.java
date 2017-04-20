@@ -11,5 +11,5 @@ import com.iyzico.challenge.entity.TicketDiscount;
 @Repository
 @Transactional
 public interface TicketDiscountRepository extends JpaRepository<TicketDiscount, Long> {
-	Optional<TicketDiscount> findByDiscountCode(String code);
+	Optional<TicketDiscount> findByCode(String code);
 }

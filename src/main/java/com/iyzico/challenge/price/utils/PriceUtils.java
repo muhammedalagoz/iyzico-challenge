@@ -14,7 +14,7 @@ public class PriceUtils {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public BigDecimal processDiscountCodeAndReturnPrice(TicketPrice ticketPrice, TicketDiscount ticketDiscount) {
-		double finalPrice = ticketPrice.getTicketPrice().doubleValue() - ticketPrice.getTicketPrice().doubleValue() * ticketDiscount.getDiscountRate() / 100;
+		double finalPrice = ticketPrice.getPrice().doubleValue() - ticketPrice.getPrice().doubleValue() * ticketDiscount.getRate() / 100;
 		return BigDecimal.valueOf(finalPrice);
 	}
 }

@@ -131,10 +131,10 @@
 							</thead>
 							<tbody>
 								<tr v-for="price in prices">
-									<td>{{price.startDate}}</td>
-									<td>{{price.endDate}}</td>
-									<td>{{price.ticketType}}</td>
-									<td><b>{{price.ticketPrice}}</b> TL</td>
+									<td>{{price.from}}</td>
+									<td>{{price.to}}</td>
+									<td>{{price.type}}</td>
+									<td><b>{{price.price}}</b> TL</td>
 								</tr>
 							</tbody>
 						</table>
@@ -217,7 +217,7 @@
 									<div class="col-sm-6">
 										<select v-model="ticket.selectedTicketType" class="select form-control" id="ticketType" name="ticketType" v-on:change="onChangeTicketType()"
 											required="required">
-											<option v-for="price in prices" v-bind:value="price.ticketPrice">{{price.ticketType}} - {{ price.ticketPrice}} TL</option>
+											<option v-for="price in prices" v-bind:value="price.price">{{price.type}} - {{ price.price}} TL</option>
 										</select>
 									</div>
 								</div>

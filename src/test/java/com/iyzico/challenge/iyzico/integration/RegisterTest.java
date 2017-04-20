@@ -74,18 +74,18 @@ public class RegisterTest extends TestUtils {
 					output.append(Status.SUCCESS.getValue()).append(",");
 					// bankaya izin veriliyor ise ödenecek tutarı bulalım.
 
-					Optional<TicketPrice> price = ticketPriceService.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(
-							register.getTransacitonDate(), register.getTransacitonDate());
+					Optional<TicketPrice> price = ticketPriceService.findByFromLessThanEqualAndToGreaterThanEqual(register.getTransacitonDate(),
+							register.getTransacitonDate());
 
 					if (price.isPresent()) {
 						// if discount code exist, find discount rate
-						Optional<TicketDiscount> discount = ticketDiscountService.findByDiscountCode(register.getDiscountCode());
+						Optional<TicketDiscount> discount = ticketDiscountService.findByCode(register.getDiscountCode());
 
 						if (discount.isPresent()) {
 							BigDecimal finalPrice = priceUtil.processDiscountCodeAndReturnPrice(price.get(), discount.get());
 							output.append(finalPrice);
 						} else {
-							output.append(price.get().getTicketPrice());
+							output.append(price.get().getPrice());
 						}
 					}
 

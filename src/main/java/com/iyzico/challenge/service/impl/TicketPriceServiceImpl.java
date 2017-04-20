@@ -23,17 +23,17 @@ public class TicketPriceServiceImpl implements TicketPriceService {
 
 	@Override
 	public List<TicketPrice> findAll() {
-		return this.ticketPriceRepository.findAll();
+		return ticketPriceRepository.findAll();
 	}
 
 	@Override
-	public Optional<TicketPrice> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(Date start, Date end) {
-		return this.ticketPriceRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(start, end);
+	public Optional<TicketPrice> findByFromLessThanEqualAndToGreaterThanEqual(Date from, Date to) {
+		return ticketPriceRepository.findByFromLessThanEqualAndToGreaterThanEqual(from, to);
 	}
 
 	@Override
-	public Optional<TicketPrice> findByTicketType(String ticketType) {
-		return this.ticketPriceRepository.findByTicketType(ticketType);
+	public Optional<TicketPrice> findByType(String type) {
+		return ticketPriceRepository.findByType(type);
 	}
 
 }

@@ -87,7 +87,7 @@ const iyzicoApp = new Vue({
         			 var isValid = false;
         			 for(index in this.discounts){
         				 var discount = this.discounts[index];
-        				 if(discount.discountCode == discountCode){
+        				 if(discount.code == discountCode){
         					 isValid = true;
         					 this.ticket.usedDiscountCode = discount;
         				 } 
@@ -95,7 +95,7 @@ const iyzicoApp = new Vue({
         			 
         			 this.ticket.isValidDiscountCode = isValid;
         			 if(isValid){
-        				 this.ticket.discountCodeMessage = 'You can use a %' + this.ticket.usedDiscountCode.discountRate + ' discount.'
+        				 this.ticket.discountCodeMessage = 'You can use a %' + this.ticket.usedDiscountCode.rate + ' discount.'
         			 }else{
         				 this.ticket.discountCodeMessage = 'Invalid discount code!';
         			 }
@@ -106,7 +106,7 @@ const iyzicoApp = new Vue({
         	 },
         	 onChangeTicketType : function() {
 				if(this.ticket.isValidDiscountCode){
-					this.ticket.discountAmount = _.toNumber(this.ticket.selectedTicketType) * _.toNumber(this.ticket.usedDiscountCode.discountRate) / 100;
+					this.ticket.discountAmount = _.toNumber(this.ticket.selectedTicketType) * _.toNumber(this.ticket.usedDiscountCode.rate) / 100;
 					this.ticket.totalPrice = this.ticket.selectedTicketType - this.ticket.discountAmount; 
 				}else{
 					this.ticket.totalPrice = _.toNumber(this.ticket.selectedTicketType);

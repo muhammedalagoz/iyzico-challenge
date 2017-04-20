@@ -2,6 +2,7 @@ package com.iyzico.challenge.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,77 +15,81 @@ public class TicketDiscount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String importanceOfDay;
-	private String discountCode;
-
+	private String importance;
+	private String code;
 	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date availableDiscountStartDate;
-
+	@Column(name = "fromDate")
+	private Date from;
 	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date availableDiscountEndDate;
+	@Column(name = "toDate")
+	private Date to;
+	private Float rate;
 
-	private Float discountRate;
+	public TicketDiscount() {
+		super();
+	}
+
+	public TicketDiscount(Long id, String importance, String code, Date from, Date to, Float rate) {
+		super();
+		this.id = id;
+		this.importance = importance;
+		this.code = code;
+		this.from = from;
+		this.to = to;
+		this.rate = rate;
+	}
 
 	public Long getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getImportanceOfDay() {
-		return this.importanceOfDay;
+	public String getImportance() {
+		return importance;
 	}
 
-	public void setImportanceOfDay(String importanceOfDay) {
-		this.importanceOfDay = importanceOfDay;
+	public void setImportance(String importance) {
+		this.importance = importance;
 	}
 
-	public String getDiscountCode() {
-		return this.discountCode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setDiscountCode(String discountCode) {
-		this.discountCode = discountCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public Date getAvailableDiscountStartDate() {
-		return this.availableDiscountStartDate;
+	public Date getFrom() {
+		return from;
 	}
 
-	public void setAvailableDiscountStartDate(Date availableDiscountStartDate) {
-		this.availableDiscountStartDate = availableDiscountStartDate;
+	public void setFrom(Date from) {
+		this.from = from;
 	}
 
-	public Date getAvailableDiscountEndDate() {
-		return this.availableDiscountEndDate;
+	public Date getTo() {
+		return to;
 	}
 
-	public void setAvailableDiscountEndDate(Date availableDiscountEndDate) {
-		this.availableDiscountEndDate = availableDiscountEndDate;
+	public void setTo(Date to) {
+		this.to = to;
 	}
 
-	public Float getDiscountRate() {
-		return this.discountRate;
+	public Float getRate() {
+		return rate;
 	}
 
-	public void setDiscountRate(Float discountRate) {
-		this.discountRate = discountRate;
+	public void setRate(Float rate) {
+		this.rate = rate;
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder ticketDiscountAsString = new StringBuilder();
-		ticketDiscountAsString.append("TicketDiscount [id=").append(this.id);
-		ticketDiscountAsString.append(", importanceOfDay=").append(this.importanceOfDay);
-		ticketDiscountAsString.append(", discountCode=").append(this.discountCode);
-		ticketDiscountAsString.append(", availableDiscountStartDate=").append(this.availableDiscountStartDate);
-		ticketDiscountAsString.append(", availableDiscountEndDate=").append(this.availableDiscountEndDate);
-		ticketDiscountAsString.append(", discountRate=").append(this.discountRate).append(" ]");
-
-		return ticketDiscountAsString.toString();
+		return "TicketDiscount [id=" + id + ", importance=" + importance + ", code=" + code + ", from=" + from + ", to=" + to + ", rate=" + rate + "]";
 	}
 
 }

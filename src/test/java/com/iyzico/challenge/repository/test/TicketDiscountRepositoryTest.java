@@ -32,9 +32,9 @@ public class TicketDiscountRepositoryTest {
 		calendar.set(Calendar.MONTH, Calendar.DECEMBER);
 		calendar.set(Calendar.DAY_OF_MONTH, 2);
 
-		Optional<TicketPrice> price = this.ticketPriceService.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(calendar.getTime(), calendar.getTime());
+		Optional<TicketPrice> price = ticketPriceService.findByFromLessThanEqualAndToGreaterThanEqual(calendar.getTime(), calendar.getTime());
 		price.ifPresent(p -> {
-			assertEquals(BigDecimal.valueOf(250.00).intValue(), price.get().getTicketPrice().intValue());
+			assertEquals(BigDecimal.valueOf(250.00).intValue(), price.get().getPrice().intValue());
 		});
 	}
 }

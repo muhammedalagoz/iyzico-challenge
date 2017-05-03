@@ -34,7 +34,7 @@ public class TicketControllerTest {
 
 	@Test
 	public void verifyAllSpeakersList() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/ticket/speakers").accept(MediaType.APPLICATION_JSON)).andExpect(jsonPath("$", hasSize(3)))
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/ticket/speakers").accept(MediaType.APPLICATION_JSON)).andExpect(jsonPath("$", hasSize(4)))
 		.andDo(print());
 	}
 

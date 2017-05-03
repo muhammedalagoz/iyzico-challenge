@@ -25,7 +25,7 @@ public class SpeakerRepositoryTest {
 
 	@Test
 	public void speakerCountTest() {
-		assertEquals(3, this.speakerRepository.findAll().size());
+		assertEquals(4, this.speakerRepository.findAll().size());
 	}
 
 	@Test

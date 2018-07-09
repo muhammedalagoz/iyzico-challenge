@@ -24,16 +24,12 @@ public class TicketMailContentBuilder {
 		Context context = new Context();
 		context.setVariable("message", "Congratulations! Your ticket has been registered.");
 		context.setVariable("ticket", ticket);
-
 		if (StringUtils.isNotBlank(ticket.getDiscountCode())) {
 			Optional<TicketDiscount> discount = ticketDiscountService.findByCode(ticket.getDiscountCode());
-
 			if (discount.isPresent()) {
 				context.setVariable("discount", discount.get());
 			}
-
 		}
-
 		return engine.process("mail", context);
 	}
 }

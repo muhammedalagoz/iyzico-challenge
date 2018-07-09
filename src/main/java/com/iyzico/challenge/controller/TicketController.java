@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiResponses;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -14,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.metrics.annotation.Timed;
+import org.springframework.metrics.instrument.MeterRegistry;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +36,7 @@ import com.iyzico.challenge.service.TicketService;
 @Api(basePath = "/api/ticket", produces = "application/json", value = "Ticket", description = "Operations with ticket, ticketprice, ticketdiscount, speakers")
 @RestController
 @RequestMapping("/api/ticket")
+@Timed
 public class TicketController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -46,6 +50,17 @@ public class TicketController {
 	TicketDiscountService ticketDiscountService;
 	@Autowired
 	TicketMailService ticketMailService;
+	@Autowired
+	MeterRegistry registry;
+
+	@PostConstruct
+	public void initRegistery(){
+		// constructs a gauge to monitor the size of the population
+		registry.collectionSize(speakService.findAll(),"speakers");
+		registry.collectionSize(ticketPriceService.findAll(),"prices");
+		registry.collectionSize(ticketDiscountService.findAll(),"discounts");
+
+	}
 
 	@ApiOperation(value = "Get speakers", notes = "Fetch List of Speaker")
 	@ApiResponses(value = { @ApiResponse(code = 404, message = "Please check url"), @ApiResponse(code = 200, message = "List<Speakers>"),
@@ -54,8 +69,7 @@ public class TicketController {
 	@RequestMapping(value = "/speakers", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Speaker>> getSpeakers() {
 		this.logger.info("TicketController - getSpeakers() method is called.");
-
-		return new ResponseEntity<List<Speaker>>(this.speakService.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(this.speakService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get prices", notes = "Fetch List of Price")
@@ -65,7 +79,7 @@ public class TicketController {
 	@RequestMapping(value = "/prices", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<TicketPrice>> getTicketPrices() {
 		this.logger.info("TicketController - getTicketPrices() method is called.");
-		return new ResponseEntity<List<TicketPrice>>(this.ticketPriceService.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(this.ticketPriceService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get discounts", notes = "Fetch List of Discount")
@@ -76,7 +90,7 @@ public class TicketController {
 	public ResponseEntity<List<TicketDiscount>> getTicketDiscount() {
 		this.logger.info("TicketController - getTicketDiscount() method is called.");
 
-		return new ResponseEntity<List<TicketDiscount>>(this.ticketDiscountService.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(this.ticketDiscountService.findAll(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get allowed credit cards for register", notes = "Fetch List of allowed credit card")
@@ -86,8 +100,7 @@ public class TicketController {
 	@RequestMapping(value = "/allowed/creditCards", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<String>> getAllowedCreditCards() {
 		this.logger.info("TicketController - getAllowedCreditCards() method is called.");
-
-		return new ResponseEntity<List<String>>(this.ticketService.getAllowedCreditCards(), HttpStatus.OK);
+		return new ResponseEntity<>(this.ticketService.getAllowedCreditCards(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Get allowed debit cards for register", notes = "Fetch List of allowed debit card")
@@ -97,8 +110,7 @@ public class TicketController {
 	@RequestMapping(value = "/allowed/debitCards", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<String>> getAllowedDebitCards() {
 		this.logger.info("TicketController - getAllowedCreditCards() method is called.");
-
-		return new ResponseEntity<List<String>>(this.ticketService.getAllowedDebitCards(), HttpStatus.OK);
+		return new ResponseEntity<>(this.ticketService.getAllowedDebitCards(), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Create new register", notes = "Create new request ")
@@ -116,8 +128,8 @@ public class TicketController {
 			}
 		} catch (Exception e) {
 			this.logger.error(e.getMessage(), e);
-			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+			return new ResponseEntity<>(false, HttpStatus.OK);
 		}
-		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		return new ResponseEntity<>(true, HttpStatus.OK);
 	}
 }

@@ -40,7 +40,6 @@ public class TicketMailService {
 			};
 			this.mailSender.send(messagePreparator);
 		} catch (MailException e) {
-			this.logger.error(e, e);
 			throw e;
 		}
 	}

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  iyzico_web_1:
+    container_name: 'iyzico-web-app-1'
+    image : aakkus/iyzico-challenge
+    networks:
+      iyzico:
+        aliases:
+          - iyzico-challenge-1.com
+    ports:
+      - 8080:8080
+  iyzico_web_2:
+    container_name: 'iyzico-web-app-2'
+    image : aakkus/iyzico-challenge
+    networks:
+      iyzico:
+        aliases:
+          - iyzico-challenge-2.com
+    ports:
+      - 8081:8080
+
+networks:
+  iyzico : {}

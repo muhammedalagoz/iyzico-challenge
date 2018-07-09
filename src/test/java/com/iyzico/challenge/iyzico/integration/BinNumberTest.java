@@ -96,8 +96,8 @@ public class BinNumberTest extends TestUtils {
 
 		assertNotNull(binNumber.getErrorCode());
 		assertNotNull(binNumber.getErrorMessage());
-		assertEquals("5066", binNumber.getErrorCode());
-		assertEquals("Bin bulunamadı", binNumber.getErrorMessage());
+		assertEquals("50000", binNumber.getErrorCode());
+		assertEquals("binNumber sayısal olmalıdır", binNumber.getErrorMessage());
 		assertNotNull(binNumber.getSystemTime());
 		assertEquals(this.LOCALE, binNumber.getLocale());
 		assertEquals(conversationID, binNumber.getConversationId());

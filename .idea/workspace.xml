@@ -24,17 +24,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83d081ff-d5b8-4fcf-8a8c-7bfd1ac978f9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/challenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iyzico/IyzicoChallengeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iyzico/IyzicoChallengeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/mail/TicketMailContentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/mail/TicketMailContentBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/mail/TicketMailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iyzico/challenge/mail/TicketMailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/iyzico/challenge/iyzico/integration/BinNumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iyzico/challenge/iyzico/integration/BinNumberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/iyzico/challenge/iyzico/integration/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iyzico/challenge/iyzico/integration/RegisterTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,13 +49,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Dockerfile" value="27" />
+          <entry key="Dockerfile" value="30" />
           <entry key="java" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dockerfile" value="27" />
+          <entry key="Dockerfile" value="30" />
           <entry key="JAVA" value="5" />
         </counts>
       </usages-collector>
@@ -76,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -833,7 +823,7 @@
       <workItem from="1520612958239" duration="2477000" />
       <workItem from="1520662990373" duration="1328000" />
       <workItem from="1520710976367" duration="2135000" />
-      <workItem from="1531128063889" duration="423000" />
+      <workItem from="1531128063889" duration="2073000" />
     </task>
     <servers />
   </component>
@@ -849,7 +839,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24844000" />
+    <option name="totallyTimeSpent" value="26494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -884,7 +874,7 @@
       <window_info anchor="bottom" id="IDEtalk Messages" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32810867" />
       <window_info anchor="bottom" id="SonarLint" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="15" />
       <window_info anchor="bottom" id="Java Enterprise" order="16" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -903,6 +893,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1232,8 +1248,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
